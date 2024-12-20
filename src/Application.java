@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
          Apprenant app =new Apprenant();
+         app.affiche();
          app.modifier();
+         app.affiche();
          Scanner scanner=new Scanner(System.in);
          int choix=0;
          do{

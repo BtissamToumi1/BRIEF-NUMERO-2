@@ -34,6 +34,9 @@ public class Apprenant extends Personne {
         System.out.print("Par quoi voulez-vous remplacer le prenom "+getTelephone()+" ? :  ");
         setTelephone(scanner.next());
     }
+    public void affiche(){
+        System.out.println("_le nom est : "+getNom()+" |le prenom est : "+getPrenom()+" |l'email est : "+getEmail()+" |le telephone est : "+getTelephone());
+    }
     public Classe getClasse() {
         return classe;
     }
