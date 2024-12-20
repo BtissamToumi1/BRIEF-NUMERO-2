@@ -6,9 +6,10 @@ public class Application {
     public static void main(String[] args) {
 
         GestionApprenant gestion=new GestionApprenant();
-
+        gestion.Ajouter_Apprenant();
+        gestion.Ajouter_Apprenant();
         gestion.afficher_listes_apprenants();
-
+        gestion.afficher_un_apprenant();
         Scanner scanner=new Scanner(System.in);
          int choix=0;
          do{

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 public class GestionApprenant {
     private ArrayList<Apprenant> liste_apprenant;
     private int comptuerId=0;
@@ -24,8 +25,20 @@ public class GestionApprenant {
             }
         }
         }
-        
-
+    public void afficher_un_apprenant() {
+        Scanner scan = new Scanner(System.in);
+        if (!liste_apprenant.isEmpty()) {
+            System.out.println("Entrez l'indice de l'apprenant que tu vas afficher ");
+            int indice = scan.nextInt();
+            if (indice >= 0 && indice < liste_apprenant.size()) {
+                liste_apprenant.get(indice).affiche();
+            }
+            else{ System.out.println("indice introuvable");}
+        }
+        else{
+            System.out.println("la liste des apprenants est vide");
+        }
+    }
     public ArrayList<Apprenant> getListe_apprenant() {
         return liste_apprenant;
     }
