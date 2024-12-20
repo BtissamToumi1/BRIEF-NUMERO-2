@@ -4,11 +4,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
-         Apprenant app =new Apprenant();
-         app.affiche();
-         app.modifier();
-         app.affiche();
-         Scanner scanner=new Scanner(System.in);
+
+        GestionApprenant gestion=new GestionApprenant();
+
+        gestion.afficher_listes_apprenants();
+
+        Scanner scanner=new Scanner(System.in);
          int choix=0;
          do{
              System.out.println("        Menu Gestion Enaa        ");
