@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
+         Apprenant app =new Apprenant();
          Scanner scanner=new Scanner(System.in);
          int choix=0;
          do{
@@ -35,4 +36,5 @@ public class Application {
 
          }while(choix!=14);
 
+ }
  }
