@@ -39,6 +39,25 @@ public class GestionApprenant {
             System.out.println("la liste des apprenants est vide");
         }
     }
+    public void Supprimer_apprenant(){
+        Scanner scann = new Scanner(System.in);
+        if (!liste_apprenant.isEmpty()) {
+            System.out.println("Entrez l'indice de l'apprenant que tu vas supprimer ");
+            int indice = scann.nextInt();
+            int indix=indice-1;
+            if (indice >= 1 && indice <=liste_apprenant.size()) {
+                liste_apprenant.remove(indix);
+                for(int i=indix ; i<liste_apprenant.size();i++){
+                    liste_apprenant.get(i).setId(i+1);
+                    System.out.println(liste_apprenant.get(i).getId());
+                }
+            }
+            else{ System.out.println("indice introuvable");}
+        }
+        else{
+            System.out.println("la liste des apprenants est vide");
+        }
+    }
     public ArrayList<Apprenant> getListe_apprenant() {
         return liste_apprenant;
     }

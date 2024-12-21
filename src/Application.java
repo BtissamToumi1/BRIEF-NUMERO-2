@@ -7,9 +7,16 @@ public class Application {
 
         GestionApprenant gestion=new GestionApprenant();
         gestion.Ajouter_Apprenant();
+        System.out.println("----------------------------------");
         gestion.Ajouter_Apprenant();
+        System.out.println("----------------------------------");
+        gestion.Ajouter_Apprenant();
+        System.out.println("----------------------------------");
         gestion.afficher_listes_apprenants();
-        gestion.afficher_un_apprenant();
+        System.out.println("----------------------------------");
+        gestion.Supprimer_apprenant();
+        System.out.println("----------------------------------");
+        gestion.afficher_listes_apprenants();
         Scanner scanner=new Scanner(System.in);
          int choix=0;
          do{
