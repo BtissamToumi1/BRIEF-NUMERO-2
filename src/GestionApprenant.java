@@ -39,6 +39,21 @@ public class GestionApprenant {
             System.out.println("la liste des apprenants est vide");
         }
     }
+    public void modifier_apprenant(){
+        Scanner scan = new Scanner(System.in);
+        if (!liste_apprenant.isEmpty()) {
+            System.out.println("Entrez l'id de l'apprenant a modifier ");
+            int indice = scan.nextInt();
+            int indix=indice-1;
+            if (indice >= 1 && indice <=liste_apprenant.size()) {
+                liste_apprenant.get(indice).modifier();
+            }
+            else{ System.out.println("indice introuvable");}
+        }
+        else{
+            System.out.println("la liste des apprenants est vide");
+        }
+    }
     public void Supprimer_apprenant(){
         Scanner scann = new Scanner(System.in);
         if (!liste_apprenant.isEmpty()) {
