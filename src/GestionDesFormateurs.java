@@ -41,6 +41,21 @@ public class GestionDesFormateurs {
             System.out.println("la liste des apprenants est vide");
         }
     }
+    public void modifier_formateur(){
+        Scanner scan = new Scanner(System.in);
+        if (!liste_formateurs.isEmpty()) {
+            System.out.println("Entrez l'id de formateurs a modifier ");
+            int indice = scan.nextInt();
+            int indix=indice-1;
+            if (indice >= 1 && indice <=liste_formateurs.size()) {
+                liste_formateurs.get(indix).modifier();
+            }
+            else{ System.out.println("indice introuvable");}
+        }
+        else{
+            System.out.println("la liste des formateurs est vide");
+        }
+    }
     public ArrayList<Formateur> getListe_formateurs() {
         return liste_formateurs;
     }
