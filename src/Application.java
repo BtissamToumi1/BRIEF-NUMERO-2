@@ -7,10 +7,11 @@ public class Application {
 
         GestionDesFormateurs gestion_formateur=new GestionDesFormateurs();
         GestionApprenant gestion_apprenant=new GestionApprenant();
-        ArrayList<Classe> liste_des_classe=new ArrayList<>();
+        Gestion_des_classes gestion_classe=new Gestion_des_classes();
 
-        /*gestion.Ajouter_Formatuer();
-        System.out.println("----------------------------------");
+        gestion_classe.creer_une_classe();
+        gestion_classe.creer_une_classe();
+        /*System.out.println("----------------------------------");
         gestion.Ajouter_Formatuer();
         System.out.println("----------------------------------");
         gestion.afficher_listes_formateurs();

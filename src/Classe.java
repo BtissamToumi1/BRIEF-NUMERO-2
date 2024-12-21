@@ -12,7 +12,7 @@ public class Classe {
         //System.out.print("entrez de la classe que tu vas creer : ");
         //setNom(scnne.nextLine());
 
-        this.Liste_des_apprenant = new ArrayList<>();
+        Liste_des_apprenant = new ArrayList<>();
 
     }
     public String getNom() {
