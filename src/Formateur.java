@@ -22,8 +22,8 @@ public class Formateur extends  Personne {
           setTelephone(scanner.next());
 
           System.out.print("Entrez specialite du formateur : ");
-          this.specialite= scanner.next();
-
+          this.specialite= scanner.nextLine();
+          scanner.nextLine();
           System.out.print("Entrez salaire du formateur : ");
           this.salaire= scanner.nextDouble();
      }
@@ -55,14 +55,14 @@ public class Formateur extends  Personne {
                          setTelephone(scanner.next());
                          break;
                     case 5: System.out.println("Par quoi voulez-vous remplacer la specialite "+getSpecialite()+" ? :  " );
-                         setSpecialite(scanner.next());
+                         setSpecialite(scanner.nextLine());
                          break;
                     case 6: System.out.println("Par quoi voulez-vous remplacer le salaire "+getSalaire()+" ? :  " );
                          setSalaire(scanner.nextDouble());
                          break;
-                    default:break;
+                    case 7:break;
                }
-          }while(choix!=6);
+          }while(choix!=7);
      }
      public void affiche(){
           System.out.println("_le nom est : "+getNom()+" |le prenom est : "+getPrenom()+" |l'email est : "+getEmail()+" |le telephone est : "+getTelephone()+" |la specialite est : "+getSpecialite()+" |le salaire est : "+getSalaire());

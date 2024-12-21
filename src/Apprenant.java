@@ -70,7 +70,7 @@ public class Apprenant extends Personne {
                         }
                     }
                     break;
-                default:break;
+                case 6:break;
             }
         }while(choix!=6);
         }

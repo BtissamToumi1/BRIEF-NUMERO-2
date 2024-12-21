@@ -30,8 +30,8 @@ public class GestionApprenant {
         if (!liste_apprenant.isEmpty()) {
             System.out.println("Entrez l'indice de l'apprenant que tu vas afficher ");
             int indice = scan.nextInt();
-            if (indice >= 0 && indice < liste_apprenant.size()) {
-                liste_apprenant.get(indice).affiche();
+            if (indice >= 1 && indice <= liste_apprenant.size()) {
+                liste_apprenant.get(indice-1).affiche();
             }
             else{ System.out.println("indice introuvable");}
         }

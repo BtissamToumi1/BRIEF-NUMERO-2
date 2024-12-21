@@ -27,13 +27,13 @@ public class GestionDesFormateurs {
             }
         }
     }
-    public void afficher_un_formateurs() {
+    public void afficher_un_formateur() {
         Scanner scan = new Scanner(System.in);
         if (!liste_formateurs.isEmpty()) {
             System.out.println("Entrez l'indice du  formateur que tu vas afficher ");
             int indice = scan.nextInt();
-            if (indice >= 0 && indice < liste_formateurs.size()) {
-                liste_formateurs.get(indice).affiche();
+            if (indice >= 1 && indice <= liste_formateurs.size()) {
+                liste_formateurs.get(indice-1).affiche();
             }
             else{ System.out.println("indice introuvable");}
         }

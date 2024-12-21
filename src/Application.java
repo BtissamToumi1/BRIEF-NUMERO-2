@@ -5,19 +5,22 @@ import java.util.Scanner;
 public class Application {
     public static void main(String[] args) {
 
-        GestionApprenant gestion=new GestionApprenant();
-        gestion.Ajouter_Apprenant();
+        GestionDesFormateurs gestion_formateur=new GestionDesFormateurs();
+        GestionApprenant gestion_apprenant=new GestionApprenant();
+        ArrayList<Classe> liste_des_classe=new ArrayList<>();
+
+        /*gestion.Ajouter_Formatuer();
         System.out.println("----------------------------------");
-        gestion.Ajouter_Apprenant();
+        gestion.Ajouter_Formatuer();
         System.out.println("----------------------------------");
-        gestion.afficher_listes_apprenants();
+        gestion.afficher_listes_formateurs();
         System.out.println("----------------------------------");
-        gestion.Supprimer_apprenant();
+        gestion.Supprimer_formateur();
         System.out.println("----------------------------------");
-        gestion.afficher_listes_apprenants();
+        gestion_formateur.afficher_listes_formateurs();
         System.out.println("----------------------------------");
-        gestion.getListe_apprenant().get(0).remplir_notes();
-        gestion.modifier_apprenant();
+
+        gestion.modifier_formateur();*/
         Scanner scanner=new Scanner(System.in);
 
         Scanner scannern=new Scanner(System.in);
@@ -54,19 +57,19 @@ public class Application {
                         System.out.println("3- Modifier les informations d'un apprenant ");
                         System.out.println("4- Suppression d'un apprenant");
                         System.out.println("5- Affichage des apprenant");
-                        System.out.println("6-Affichage des details d'un apprenant");
+                        System.out.println("6-Affichage de details d'un apprenant");
                         System.out.println("7-Quitter");
                         choix2=scannern.nextInt();
                         switch (choix2){
-                            case 1: gestion.Ajouter_Apprenant();break;
+                            case 1: gestion_apprenant.Ajouter_Apprenant();break;
                             case 2 :break;
-                            case 3: gestion.modifier_apprenant();break;
-                            case 4: gestion.Supprimer_apprenant();break;
-                            case 5: gestion.afficher_listes_apprenants();break;
-                            case 6: gestion.afficher_un_apprenant();
-                            default:break;
+                            case 3: gestion_apprenant.modifier_apprenant();break;
+                            case 4:gestion_apprenant.Supprimer_apprenant();break;
+                            case 5: gestion_apprenant.afficher_listes_apprenants();break;
+                            case 6: gestion_apprenant.afficher_un_apprenant();break;
+                            case 7:break;
                         }
-                    }while(choix2!=6);
+                    }while(choix2!=7);
                     break;
                 case 3: int choix3;
                     do {
@@ -76,17 +79,19 @@ public class Application {
                         System.out.println("3- Modifier les informations d'un Formateur ");
                         System.out.println("4- Suppression d'un Formateur");
                         System.out.println("5- Affichage des Formateurs");
-                        System.out.println("6-Quitter");
+                        System.out.println("6- Affichage de details d'un formateur");
+                        System.out.println("7- Quitter");
                         choix3=scannern.nextInt();
                         switch (choix3){
-                            case 1: break;
-                            case 2 :break;
-                            case 3: break;
-                            case 4: break;
-                            case 5: break;
-                            case 6: break;
+                            case 1: gestion_formateur.afficher_un_formateur();break;
+                            case 2: ;break;
+                            case 3: gestion_formateur.modifier_formateur();break;
+                            case 4: gestion_formateur.Supprimer_formateur();break;
+                            case 5: gestion_formateur.afficher_listes_formateurs(); break;
+                            case 6: gestion_formateur.afficher_un_formateur(); break;
+                            case 7:break;
                         }
-                    }while(choix3!=6);
+                    }while(choix3!=7);
                     break;
                 case 4: break;
             }
