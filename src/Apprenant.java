@@ -18,6 +18,7 @@ public class Apprenant extends Personne {
 
         System.out.print("Entrez le telephone de l'apprenant : ");
         setTelephone(scanner.next());
+        Liste_notes=new ArrayList<>();
 
      }
     public void modifier(){
@@ -36,6 +37,16 @@ public class Apprenant extends Personne {
     }
     public void affiche(){
         System.out.println("_le nom est : "+getNom()+" |le prenom est : "+getPrenom()+" |l'email est : "+getEmail()+" |le telephone est : "+getTelephone());
+    }
+    public void remplir_notes(){
+        Scanner scanne=new Scanner(System.in);
+        System.out.println("Entrez le nombre de notes : ");
+        int nombre=scanne.nextInt();
+        for(int i=0;i<nombre;i++){
+            System.out.print("Entrez la note de Numero "+(i+1)+": ");
+            Liste_notes.add(scanne.nextDouble());
+            setListe_notes(Liste_notes);
+        }
     }
     public Classe getClasse() {
         return classe;

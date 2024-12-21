@@ -17,6 +17,8 @@ public class Application {
         gestion.Supprimer_apprenant();
         System.out.println("----------------------------------");
         gestion.afficher_listes_apprenants();
+        System.out.println("----------------------------------");
+        gestion.getListe_apprenant().get(1).remplir_notes();
         Scanner scanner=new Scanner(System.in);
          int choix=0;
          do{
