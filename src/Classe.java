@@ -7,6 +7,13 @@ public class Classe {
     private ArrayList<Apprenant> Liste_des_apprenant;
 
     public Classe() {
+       // Scanner scnne=new Scanner(System.in);
+
+        //System.out.print("entrez de la classe que tu vas creer : ");
+        //setNom(scnne.nextLine());
+
+        this.Liste_des_apprenant = new ArrayList<>();
+
     }
     public String getNom() {
         return nom;
