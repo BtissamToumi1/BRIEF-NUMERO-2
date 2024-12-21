@@ -56,6 +56,25 @@ public class GestionDesFormateurs {
             System.out.println("la liste des formateurs est vide");
         }
     }
+    public void Supprimer_formateur(){
+        Scanner scann = new Scanner(System.in);
+        if (!liste_formateurs.isEmpty()) {
+            System.out.println("Entrez l'indice du formateur que tu vas supprimer ");
+            int indice = scann.nextInt();
+            int indix=indice-1;
+            if (indice >= 1 && indice <=liste_formateurs.size()) {
+                liste_formateurs.remove(indix);
+                for(int i=indix ; i<liste_formateurs.size();i++){
+                    liste_formateurs.get(i).setId(i+1);
+                    System.out.println(liste_formateurs.get(i).getId());
+                }
+            }
+            else{ System.out.println("indice introuvable");}
+        }
+        else{
+            System.out.println("la liste des formateurs est vide");
+        }
+    }
     public ArrayList<Formateur> getListe_formateurs() {
         return liste_formateurs;
     }
