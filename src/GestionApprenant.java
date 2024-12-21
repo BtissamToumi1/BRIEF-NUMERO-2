@@ -46,7 +46,7 @@ public class GestionApprenant {
             int indice = scan.nextInt();
             int indix=indice-1;
             if (indice >= 1 && indice <=liste_apprenant.size()) {
-                liste_apprenant.get(indice).modifier();
+                liste_apprenant.get(indix).modifier();
             }
             else{ System.out.println("indice introuvable");}
         }

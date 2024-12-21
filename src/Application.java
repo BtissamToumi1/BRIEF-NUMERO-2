@@ -10,15 +10,13 @@ public class Application {
         System.out.println("----------------------------------");
         gestion.Ajouter_Apprenant();
         System.out.println("----------------------------------");
-        gestion.Ajouter_Apprenant();
-        System.out.println("----------------------------------");
         gestion.afficher_listes_apprenants();
         System.out.println("----------------------------------");
         gestion.Supprimer_apprenant();
         System.out.println("----------------------------------");
         gestion.afficher_listes_apprenants();
         System.out.println("----------------------------------");
-        gestion.getListe_apprenant().get(1).remplir_notes();
+        gestion.getListe_apprenant().get(0).remplir_notes();
         gestion.modifier_apprenant();
         Scanner scanner=new Scanner(System.in);
          int choix=0;
