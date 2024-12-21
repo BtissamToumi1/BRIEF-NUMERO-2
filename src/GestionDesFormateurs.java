@@ -1,19 +1,33 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class GestionDesFormateurs {
     ArrayList<Formateur> liste_formateurs;
     private int comptuerId=0;
 
-    public void Ajouter_Apprenant(){
+    public void Ajouter_Formatuer(){
         Formateur   F1=new Formateur();
         F1.setId(++comptuerId);
         liste_formateurs.add(F1);
     }
 
-    public GestionDesFormateurs(ArrayList<Formateur> liste_formateurs) {
-        this.liste_formateurs = liste_formateurs;
+    public GestionDesFormateurs() {
+        liste_formateurs = new ArrayList<>();
     }
 
+    public void afficher_listes_formateurs(){
+        if(liste_formateurs.isEmpty()){
+            System.out.println("la liste des Formateurs est vide");
+        }
+        else{
+            for(int i=0;i<liste_formateurs.size();i++){
+                System.out.print(liste_formateurs.get(i).getId()+" : ");
+                liste_formateurs.get(i).affiche();
+                System.out.println();
+            }
+        }
+    }
+    
     public ArrayList<Formateur> getListe_formateurs() {
         return liste_formateurs;
     }
