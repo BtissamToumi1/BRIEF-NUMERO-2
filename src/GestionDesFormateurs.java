@@ -27,7 +27,20 @@ public class GestionDesFormateurs {
             }
         }
     }
-    
+    public void afficher_un_formateurs() {
+        Scanner scan = new Scanner(System.in);
+        if (!liste_formateurs.isEmpty()) {
+            System.out.println("Entrez l'indice du  formateur que tu vas afficher ");
+            int indice = scan.nextInt();
+            if (indice >= 0 && indice < liste_formateurs.size()) {
+                liste_formateurs.get(indice).affiche();
+            }
+            else{ System.out.println("indice introuvable");}
+        }
+        else{
+            System.out.println("la liste des apprenants est vide");
+        }
+    }
     public ArrayList<Formateur> getListe_formateurs() {
         return liste_formateurs;
     }
