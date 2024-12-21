@@ -43,7 +43,7 @@ public class Application {
                         System.out.println("4- Quitter");
                         choix1=scannern.nextInt();
                         switch (choix1){
-                            case 1: break;
+                            case 1: gestion_classe.creer_une_classe();break;
                             case 2 :break;
                             case 3: break;
                             case 4: break;
