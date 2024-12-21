@@ -9,6 +9,7 @@ public class GestionDesFormateurs {
         F1.setId(++comptuerId);
         liste_formateurs.add(F1);
     }
+
     public GestionDesFormateurs(ArrayList<Formateur> liste_formateurs) {
         this.liste_formateurs = liste_formateurs;
     }
