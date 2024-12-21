@@ -4,7 +4,11 @@ public class GestionDesFormateurs {
     ArrayList<Formateur> liste_formateurs;
     private int comptuerId=0;
 
-
+    public void Ajouter_Apprenant(){
+        Formateur   F1=new Formateur();
+        F1.setId(++comptuerId);
+        liste_formateurs.add(F1);
+    }
     public GestionDesFormateurs(ArrayList<Formateur> liste_formateurs) {
         this.liste_formateurs = liste_formateurs;
     }
