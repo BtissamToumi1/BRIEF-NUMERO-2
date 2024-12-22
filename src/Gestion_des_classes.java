@@ -2,24 +2,24 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Gestion_des_classes {
-    private ArrayList<Classe> lise_des_classes;
+    private ArrayList<Classe> liste_des_classes;
     private static int compteurID=0;
     public void creer_une_classe(){
         Scanner sc=new Scanner(System.in);
         System.out.print("Entrez le nom de la classe : ");
         String nom=sc.nextLine();
-        if(lise_des_classes.isEmpty()){
+        if(liste_des_classes.isEmpty()){
             Classe classe=new Classe();
             classe.setId(++compteurID);
             classe.setNom(nom);
-            lise_des_classes.add(classe);
+            liste_des_classes.add(classe);
             System.out.println("La classe '" + nom + "' a été ajoutée avec succès !");
         } else {
                if(exiteDeja(nom)){System.out.println("ce classe existe deja");}
                 else{Classe classe=new Classe();
                    classe.setNom(nom);
                    classe.setId(++compteurID);
-                   lise_des_classes.add(classe);}
+                   liste_des_classes.add(classe);}
             }
 
         }
@@ -41,7 +41,7 @@ public void modifier_classe(){
                     if(!exiteDeja(nom)){Classe classe=new Classe();classe.setNom(nom);}
                     else{System.out.println("ce classe existe deja");}
                     break;
-            case 2: 
+            case 2:
                 break;
             case 3:
                 break;
@@ -53,19 +53,19 @@ public void modifier_classe(){
     }while(choix!=5);
 }
 public void afficher_liste_classes(){
-        if(!lise_des_classes.isEmpty()){
-            for(int i=0; i<lise_des_classes.size();i++){
-                System.out.println(lise_des_classes.get(i).getNom());
+        if(!liste_des_classes.isEmpty()){
+            for(int i=0; i<liste_des_classes.size();i++){
+                System.out.println(liste_des_classes.get(i).getNom());
             }
         }
 }
 public void ajouter_apprenant_a_une_classe(Apprenant app, int i){
-        lise_des_classes.get(i).getListe_des_apprenant().add(app);
+        liste_des_classes.get(i).getListe_des_apprenant().add(app);
 }
 public boolean exiteDeja(String nom) {
         int trouve = -1;
-        for (int i = 0; i < lise_des_classes.size(); i++) {
-            if (lise_des_classes.get(i).getNom().equals(nom)) {
+        for (int i = 0; i < liste_des_classes.size(); i++) {
+            if (liste_des_classes.get(i).getNom().equals(nom)) {
                 trouve = 1;
                 break;
             }
@@ -78,7 +78,7 @@ public boolean exiteDeja(String nom) {
         }
 public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
         Scanner scanner=new Scanner(System.in);
-        if(!lise_des_classes.isEmpty()) {
+        if(!liste_des_classes.isEmpty()){
             System.out.println("--------------------------------");
             System.out.println("   Voici le liste des classes   ");
             System.out.println("--------------------------------");
@@ -86,8 +86,8 @@ public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
             System.out.println("Entrez l'indice de la classe ");
             int indice = scanner.nextInt() - 1;
 
-            if (indice >= 0 && indice < lise_des_classes.size()) {
-                Classe classe=lise_des_classes.get(indice);
+            if (indice >= 0 && indice < liste_des_classes.size()) {
+                Classe classe=liste_des_classes.get(indice);
                 System.out.println("      Menu de choix      ");
                 System.out.println("      1-ajouter un nouvel apprenant dans cette classe ");
                 System.out.println("      2-ajouter un apprenant deja existant dans la liste des apprenants ");
@@ -99,24 +99,40 @@ public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
                              gestionApprenant.Ajouter_Apprenant();
                              gestionApprenant.getListe_apprenant().get(taille+1).setClasse(classe);
                              Apprenant app=gestionApprenant.getListe_apprenant().get(taille+1);
-                             lise_des_classes.get(indice).getListe_des_apprenant().add(app);
+                             liste_des_classes.get(indice).getListe_des_apprenant().add(app);
                             break;
-                    case 2 :
-                }
-            }
-            else{System.out.println(" classe invalide ");}
+                    case 2 :  if (!gestionApprenant.getListe_apprenant().isEmpty()) {
+                                  System.out.println("------------------------------");
+                                  System.out.println(" voici la liste des apprenants ");
+                                  System.out.println("------------------------------");
+                                  gestionApprenant.afficher_listes_apprenants();
+                                  System.out.println("Entrez l'idice de la classe : ");
+                                  int index = scanner.nextInt() - 1;
+                                  if (index >= 0 && index < gestionApprenant.getListe_apprenant().size()) {
+                                      ajouter_apprenant_a_une_classe(gestionApprenant.getListe_apprenant().get(index),indice);
+                                     System.out.print("l'ajout est fait avec succes");
+                                  }
+                                  else{ System.out.print("apprenant invalide"); }
+                              }
+                              else{System.out.println("la liste des apprenants est vide ");}
+                              break;
+                    case 3: break;
 
+                    }
+                }
+            else{System.out.println(" classe invalide ");}
         }else {System.out.println("la liste des classes est vide ");}
+
     }
     public Gestion_des_classes() {
-        lise_des_classes = new ArrayList<>();
+        liste_des_classes = new ArrayList<>();
     }
 
     public ArrayList<Classe> getLise_des_classes() {
-        return lise_des_classes;
+        return liste_des_classes;
     }
 
     public void setLise_des_classes(ArrayList<Classe> lise_des_classes) {
-        this.lise_des_classes = lise_des_classes;
+        this.liste_des_classes = lise_des_classes;
     }
 }
