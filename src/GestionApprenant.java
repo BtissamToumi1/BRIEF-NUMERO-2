@@ -13,7 +13,7 @@ public class GestionApprenant {
         E1.setId(++comptuerId);
         liste_apprenant.add(E1);
     }
-    public void Associer_Apprenant_classe(Gestion_des_classes gestion_classe) {
+   public void Associer_Apprenant_classe(Gestion_des_classes gestion_classe) {
         Scanner scanne = new Scanner(System.in);
         System.out.println("    ------------------------------  ");
         System.out.println("    voici la liste des apprenants    ");
@@ -26,9 +26,9 @@ public class GestionApprenant {
             System.out.println("------------------------------");
             System.out.println("Selectionnez l'apprenant a associer a une classe : ");
             int index_Apprenant = scanne.nextInt() - 1;
-            if (index_Apprenant >= 0 && index_Apprenant < gestion_classe.getListe_des_classes().size()) {
+            if (index_Apprenant >= 0 && index_Apprenant < gestion_classe.getLise_des_classes().size()) {
                 Apprenant apprenant = liste_apprenant.get(index_Apprenant);
-                if (gestion_classe.getListe_des_classes().isEmpty()) {
+                if (gestion_classe.getLise_des_classes().isEmpty()) {
                     System.out.println("------------------------------");
                     System.out.println("la liste des classes est vide ");
                     System.out.println("------------------------------");

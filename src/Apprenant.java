@@ -14,7 +14,14 @@ public class Apprenant extends Personne {
          setPrenom(scanner.next());
 
         System.out.print("Entrez l'email de l'apprenant : ");
-        setEmail(scanner.next());
+        String Email=scanner.next();
+        while(!ValiderEmail(Email)){
+            System.out.println("Email invalide ");
+            System.out.print("Entrez l'email de l'apprenant une autre fois : ");
+            Email=scanner.next();
+        }
+
+        setEmail(Email);
 
         System.out.print("Entrez le telephone de l'apprenant : ");
         setTelephone(scanner.next());
@@ -86,6 +93,10 @@ public class Apprenant extends Personne {
             Liste_notes.add(scanne.nextDouble());
             setListe_notes(Liste_notes);
         }
+    }
+    public boolean ValiderEmail(String Email){
+        String regex= "^[a-zA-Z][a-zA-Z0-9._*%+-]*@gmail\\.com$";
+        return Email.matches(regex);
     }
     public Classe getClasse() {
         return classe;

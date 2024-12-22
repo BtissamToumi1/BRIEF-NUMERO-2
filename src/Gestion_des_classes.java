@@ -76,30 +76,35 @@ public boolean exiteDeja(String nom) {
                 return false;
             }
         }
-public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
+/*public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
         Scanner scanner=new Scanner(System.in);
         if(!liste_des_classes.isEmpty()){
             System.out.println("--------------------------------");
             System.out.println("   Voici le liste des classes   ");
             System.out.println("--------------------------------");
-
+            afficher_liste_classes();
             System.out.println("Entrez l'indice de la classe ");
             int indice = scanner.nextInt() - 1;
 
             if (indice >= 0 && indice < liste_des_classes.size()) {
                 Classe classe=liste_des_classes.get(indice);
+                int choix=0;
+                do{
                 System.out.println("      Menu de choix      ");
                 System.out.println("      1-ajouter un nouvel apprenant dans cette classe ");
                 System.out.println("      2-ajouter un apprenant deja existant dans la liste des apprenants ");
                 System.out.println("      3-Quitter ");
                 System.out.println("Entrez le choix =>  ");
-                int choix=scanner.nextInt();
+                 choix=scanner.nextInt();
                 switch(choix){
                     case 1:  int taille=gestionApprenant.getListe_apprenant().size();
                              gestionApprenant.Ajouter_Apprenant();
-                             gestionApprenant.getListe_apprenant().get(taille+1).setClasse(classe);
-                             Apprenant app=gestionApprenant.getListe_apprenant().get(taille+1);
-                             liste_des_classes.get(indice).getListe_des_apprenant().add(app);
+                             Apprenant app=gestionApprenant.getListe_apprenant().get(taille);
+                             app.setClasse(classe);
+                             classe.getListe_des_apprenant().add(app);
+                             //gestionApprenant.getListe_apprenant().get(taille).setClasse(classe);
+                             //Apprenant app=gestionApprenant.getListe_apprenant().get(taille);
+                             //getLise_des_classes().get(indice).getListe_des_apprenant().add(app);
                             break;
                     case 2 :  if (!gestionApprenant.getListe_apprenant().isEmpty()) {
                                   System.out.println("------------------------------");
@@ -109,6 +114,7 @@ public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
                                   System.out.println("Entrez l'idice de la classe : ");
                                   int index = scanner.nextInt() - 1;
                                   if (index >= 0 && index < gestionApprenant.getListe_apprenant().size()) {
+                                       gestionApprenant.getListe_apprenant().get(index).setClasse(classe);
                                       ajouter_apprenant_a_une_classe(gestionApprenant.getListe_apprenant().get(index),indice);
                                      System.out.print("l'ajout est fait avec succes");
                                   }
@@ -119,11 +125,11 @@ public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
                     case 3: break;
 
                     }
-                }
+                }while(choix!=3);}
             else{System.out.println(" classe invalide ");}
         }else {System.out.println("la liste des classes est vide ");}
 
-    }
+    }*/
     public Gestion_des_classes() {
         liste_des_classes = new ArrayList<>();
     }

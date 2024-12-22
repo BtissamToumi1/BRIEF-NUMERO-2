@@ -6,7 +6,7 @@ public class GestionDesFormateurs {
     private int comptuerId=0;
 
     public void Ajouter_Formatuer(){
-        Formateur   F1=new Formateur();
+        Formateur  F1=new Formateur();
         F1.setId(++comptuerId);
         liste_formateurs.add(F1);
     }

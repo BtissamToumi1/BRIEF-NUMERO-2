@@ -9,7 +9,7 @@ public class Application {
         GestionApprenant gestion_apprenant=new GestionApprenant();
         Gestion_des_classes gestion_classe=new Gestion_des_classes();
 
-        gestion_classe.creer_une_classe();
+        /*gestion_classe.creer_une_classe();
         gestion_classe.creer_une_classe();
         gestion_classe.afficher_liste_classes();
         System.out.println("----------------------------------");
@@ -17,10 +17,14 @@ public class Application {
         System.out.println("----------------------------------");
         gestion_apprenant.Ajouter_Apprenant();
         System.out.println("----------------------------------");
-        gestion_apprenant.Associer_Apprenant_classe(gestion_classe);
+        //gestion_apprenant.Associer_Apprenant_classe(gestion_classe);
         System.out.println();
-        System.out.println(gestion_apprenant.getListe_apprenant().get(0).getClasse().getNom());
+        //System.out.println(gestion_apprenant.getListe_apprenant().get(0).getClasse().getNom());
         System.out.println();
+        //gestion_classe.ajouter_apprenant_classe(gestion_apprenant);
+        gestion_apprenant.afficher_listes_apprenants();
+        System.out.println(gestion_apprenant.getListe_apprenant().get(2).getClass());
+        //gestion_apprenant.getListe_apprenant().get(2).getClass();*/
         Scanner scanner=new Scanner(System.in);
 
         Scanner scannern=new Scanner(System.in);
@@ -58,18 +62,19 @@ public class Application {
                         System.out.println("4- Suppression d'un apprenant");
                         System.out.println("5- Affichage des apprenant");
                         System.out.println("6-Affichage de details d'un apprenant");
-                        System.out.println("7-Quitter");
+                        System.out.println("7-remplissage des notes d'un apprenant");
+                        System.out.println("8-Quitter");
                         choix2=scannern.nextInt();
                         switch (choix2){
                             case 1: gestion_apprenant.Ajouter_Apprenant();break;
-                            case 2 :break;
+                            case 2 :gestion_apprenant.Associer_Apprenant_classe(gestion_classe); break;
                             case 3: gestion_apprenant.modifier_apprenant();break;
                             case 4:gestion_apprenant.Supprimer_apprenant();break;
                             case 5: gestion_apprenant.afficher_listes_apprenants();break;
                             case 6: gestion_apprenant.afficher_un_apprenant();break;
                             case 7:break;
                         }
-                    }while(choix2!=7);
+                    }while(choix2!=8);
                     break;
                 case 3: int choix3;
                     do {
@@ -83,8 +88,8 @@ public class Application {
                         System.out.println("7- Quitter");
                         choix3=scannern.nextInt();
                         switch (choix3){
-                            case 1: gestion_formateur.afficher_un_formateur();break;
-                            case 2: ;break;
+                            case 1: gestion_formateur.Ajouter_Formatuer();break;
+                            case 2: break;
                             case 3: gestion_formateur.modifier_formateur();break;
                             case 4: gestion_formateur.Supprimer_formateur();break;
                             case 5: gestion_formateur.afficher_listes_formateurs(); break;
