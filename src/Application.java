@@ -49,6 +49,7 @@ public class Application {
                         System.out.println("4- Ajouter un apprenant ");
                         System.out.println("5- Supprimer un apprenant");
                         System.out.println("6- Associer un formateur");
+                        System.out.println("7- Quitter");
                         try {
                             System.out.println("Entrez votre choix > ");
                             choix1 = scannern.nextInt();
@@ -56,7 +57,7 @@ public class Application {
                                 case 1:
                                     gestion_classe.creer_une_classe();
                                     break;
-                                case 2:
+                                case 2:gestion_classe.modifier_classe();
                                     break;
                                 case 3:gestion_classe.afficher_liste_classes();
                                     break;
@@ -136,7 +137,7 @@ public class Application {
                                 case 1:
                                     gestion_formateur.Ajouter_Formatuer();
                                     break;
-                                case 2:
+                                case 2:gestion_classe.associer_un_formateur(gestion_formateur);
                                     break;
                                 case 3:
                                     gestion_formateur.modifier_formateur();

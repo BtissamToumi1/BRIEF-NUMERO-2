@@ -12,6 +12,10 @@ public class Classe {
     public String getNom() {
         return nom;
     }
+    public void afficher_liste_des_apprenants(int i){
+                getListe_des_apprenant().get(i).affiche();
+                System.out.println();
+    }
 
     public int getId() {
         return id;

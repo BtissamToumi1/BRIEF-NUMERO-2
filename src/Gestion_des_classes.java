@@ -37,8 +37,6 @@ public void associer_un_formateur(GestionDesFormateurs gestion_formateur) {
             int index = scanner.nextInt() - 1;
             if (index >= 0 && index < gestion_formateur.liste_formateurs.size()) {
                 Formateur formateur=gestion_formateur.liste_formateurs.get(index);
-                liste_des_classes.get(indice).setFormateur(formateur);
-                System.out.println();
             }
             else{System.out.print("ce formateur n'existe pas ");}
         } else {
@@ -47,7 +45,19 @@ public void associer_un_formateur(GestionDesFormateurs gestion_formateur) {
     }
     else{System.out.print("la liste des classes est vide ");}
 }
-
+public void afficher_details_classe(){
+    Scanner scanner = new Scanner(System.in);
+    if (!liste_des_classes.isEmpty()) {
+        afficher_liste_classes();
+        System.out.println("Entrez l'indice de la classe > ");
+        int indice = scanner.nextInt() - 1;
+        if (indice >= 0 && indice < liste_des_classes.size()) {
+            liste_des_classes.get(indice).afficher_liste_des_apprenants(indice);
+        } else{System.out.print("ce classe n'existe pas ");}
+        } else {
+            System.out.print("cette classe n'existe pas ");
+        }
+}
 public void modifier_classe(){
     Scanner scanner=new Scanner(System.in);
     int choix=0;
