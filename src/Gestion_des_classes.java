@@ -53,7 +53,14 @@ public void modifier_classe(){
     }while(choix!=5);
 }
 public void afficher_liste_classes(){
-        
+        if(!lise_des_classes.isEmpty()){
+            for(int i=0; i<lise_des_classes.size();i++){
+                System.out.println(lise_des_classes.get(i).getNom());
+            }
+        }
+}
+public void ajouter_apprenant_a_une_classe(Apprenant app, int i){
+        lise_des_classes.get(i).getListe_des_apprenant().add(app);
 }
 public boolean exiteDeja(String nom) {
         int trouve = -1;
@@ -69,7 +76,38 @@ public boolean exiteDeja(String nom) {
                 return false;
             }
         }
+public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
+        Scanner scanner=new Scanner(System.in);
+        if(!lise_des_classes.isEmpty()) {
+            System.out.println("--------------------------------");
+            System.out.println("   Voici le liste des classes   ");
+            System.out.println("--------------------------------");
 
+            System.out.println("Entrez l'indice de la classe ");
+            int indice = scanner.nextInt() - 1;
+
+            if (indice >= 0 && indice < lise_des_classes.size()) {
+                Classe classe=lise_des_classes.get(indice);
+                System.out.println("      Menu de choix      ");
+                System.out.println("      1-ajouter un nouvel apprenant dans cette classe ");
+                System.out.println("      2-ajouter un apprenant deja existant dans la liste des apprenants ");
+                System.out.println("      3-Quitter ");
+                System.out.println("Entrez le choix =>  ");
+                int choix=scanner.nextInt();
+                switch(choix){
+                    case 1:  int taille=gestionApprenant.getListe_apprenant().size();
+                             gestionApprenant.Ajouter_Apprenant();
+                             gestionApprenant.getListe_apprenant().get(taille+1).setClasse(classe);
+                             Apprenant app=gestionApprenant.getListe_apprenant().get(taille+1);
+                             lise_des_classes.get(indice).getListe_des_apprenant().add(app);
+                            break;
+                    case 2 :
+                }
+            }
+            else{System.out.println(" classe invalide ");}
+
+        }else {System.out.println("la liste des classes est vide ");}
+    }
     public Gestion_des_classes() {
         lise_des_classes = new ArrayList<>();
     }

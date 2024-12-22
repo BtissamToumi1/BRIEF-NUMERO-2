@@ -11,17 +11,16 @@ public class Application {
 
         gestion_classe.creer_une_classe();
         gestion_classe.creer_une_classe();
-        /*System.out.println("----------------------------------");
-        gestion.Ajouter_Formatuer();
+        gestion_classe.afficher_liste_classes();
         System.out.println("----------------------------------");
-        gestion.afficher_listes_formateurs();
+        gestion_apprenant.Ajouter_Apprenant();
         System.out.println("----------------------------------");
-        gestion.Supprimer_formateur();
+        gestion_apprenant.Ajouter_Apprenant();
         System.out.println("----------------------------------");
-        gestion_formateur.afficher_listes_formateurs();
-        System.out.println("----------------------------------");
-
-        gestion.modifier_formateur();*/
+        gestion_apprenant.Associer_Apprenant_classe(gestion_classe);
+        System.out.println();
+        System.out.println(gestion_apprenant.getListe_apprenant().get(0).getClasse().getNom());
+        System.out.println();
         Scanner scanner=new Scanner(System.in);
 
         Scanner scannern=new Scanner(System.in);

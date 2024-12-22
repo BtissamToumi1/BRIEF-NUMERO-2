@@ -49,8 +49,9 @@ public class GestionApprenant {
                     System.out.println("    ------------------------------  ");
                     System.out.println("    voici la liste des classes    ");
                     System.out.println("    ------------------------------  ");
-                    //gestion_classe.afficher_liste_classes
+                    gestion_classe.afficher_liste_classes();
                     System.out.println("    ------------------------------  ");
+                    System.out.println("Entrez l'idice de la classe : ");
                     int index_classe = scanne.nextInt() - 1;
                     if (index_classe >= 0 && index_classe < gestion_classe.getLise_des_classes().size()) {
                         Classe classe = gestion_classe.getLise_des_classes().get(index_classe);
@@ -60,6 +61,7 @@ public class GestionApprenant {
                     else{ System.out.print("classe invalide"); }
                 }
             }
+            else{ System.out.print(" apprenant invalide "); }
         }
     }
     public void afficher_listes_apprenants(){
