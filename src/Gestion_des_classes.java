@@ -4,25 +4,50 @@ import java.util.Scanner;
 public class Gestion_des_classes {
     private ArrayList<Classe> liste_des_classes;
     private static int compteurID=0;
-    public void creer_une_classe(){
-        Scanner sc=new Scanner(System.in);
+    public void creer_une_classe() {
+        Scanner sc = new Scanner(System.in);
         System.out.print("Entrez le nom de la classe : ");
-        String nom=sc.nextLine();
-        if(liste_des_classes.isEmpty()){
-            Classe classe=new Classe();
+        String nom = sc.nextLine();
+        if (liste_des_classes.isEmpty()) {
+            Classe classe = new Classe();
             classe.setId(++compteurID);
             classe.setNom(nom);
             liste_des_classes.add(classe);
             System.out.println("La classe '" + nom + "' a été ajoutée avec succès !");
         } else {
-               if(exiteDeja(nom)){System.out.println("ce classe existe deja");}
-                else{Classe classe=new Classe();
-                   classe.setNom(nom);
-                   classe.setId(++compteurID);
-                   liste_des_classes.add(classe);}
+            if (exiteDeja(nom)) {
+                System.out.println("ce classe existe deja");
+            } else {
+                Classe classe = new Classe();
+                classe.setNom(nom);
+                classe.setId(++compteurID);
+                liste_des_classes.add(classe);
             }
-
         }
+    }
+public void associer_un_formateur(GestionDesFormateurs gestion_formateur) {
+    Scanner scanner = new Scanner(System.in);
+    if (!liste_des_classes.isEmpty()) {
+        afficher_liste_classes();
+        System.out.println("Entrez l'indice de la classe > ");
+        int indice = scanner.nextInt() - 1;
+        if (indice >= 0 && indice < liste_des_classes.size()) {
+            gestion_formateur.afficher_listes_formateurs();
+            System.out.print("Entrez l'indice du formateur  > ");
+            int index = scanner.nextInt() - 1;
+            if (index >= 0 && index < gestion_formateur.liste_formateurs.size()) {
+                Formateur formateur=gestion_formateur.liste_formateurs.get(index);
+                liste_des_classes.get(indice).setFormateur(formateur);
+                System.out.println();
+            }
+            else{System.out.print("ce formateur n'existe pas ");}
+        } else {
+            System.out.print("cette classe n'existe pas ");
+        }
+    }
+    else{System.out.print("la liste des classes est vide ");}
+}
+
 public void modifier_classe(){
     Scanner scanner=new Scanner(System.in);
     int choix=0;
@@ -55,7 +80,7 @@ public void modifier_classe(){
 public void afficher_liste_classes(){
         if(!liste_des_classes.isEmpty()){
             for(int i=0; i<liste_des_classes.size();i++){
-                System.out.println(liste_des_classes.get(i).getNom());
+                System.out.println("id :"+liste_des_classes.get(i).getId()+ "Nom de la classe :"+liste_des_classes.get(i).getNom());
             }
         }
 }
@@ -76,7 +101,7 @@ public boolean exiteDeja(String nom) {
                 return false;
             }
         }
-/*public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
+public void ajouter_apprenant_classe(GestionApprenant gestionApprenant){
         Scanner scanner=new Scanner(System.in);
         if(!liste_des_classes.isEmpty()){
             System.out.println("--------------------------------");
@@ -129,7 +154,7 @@ public boolean exiteDeja(String nom) {
             else{System.out.println(" classe invalide ");}
         }else {System.out.println("la liste des classes est vide ");}
 
-    }*/
+    }
     public Gestion_des_classes() {
         liste_des_classes = new ArrayList<>();
     }

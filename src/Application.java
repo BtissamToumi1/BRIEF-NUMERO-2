@@ -46,7 +46,9 @@ public class Application {
                         System.out.println("1- cree une classe ");
                         System.out.println("2- modifcation d'une classe ");
                         System.out.println("3- Affichage des details dune classe");
-                        System.out.println("4- Quitter");
+                        System.out.println("4- Ajouter un apprenant ");
+                        System.out.println("5- Supprimer un apprenant");
+                        System.out.println("6- Associer un formateur");
                         try {
                             System.out.println("Entrez votre choix > ");
                             choix1 = scannern.nextInt();
@@ -56,9 +58,15 @@ public class Application {
                                     break;
                                 case 2:
                                     break;
-                                case 3:
+                                case 3:gestion_classe.afficher_liste_classes();
                                     break;
-                                case 4:
+                                case 4:gestion_classe.ajouter_apprenant_classe(gestion_apprenant);
+                                    break;
+                                case 5:
+                                    break;
+                                case 6:gestion_classe.associer_un_formateur(gestion_formateur);
+                                    break;
+                                default:System.out.println("Au revoir !");
                                     break;
                             }
 
@@ -66,7 +74,7 @@ public class Application {
                             System.out.println(" Entrez invalide ");
                             scannern.next();
                         }
-                    } while (choix1 != 4);
+                    } while (choix1 != 7);
                     break;
                 case 2:
                     do {
@@ -103,6 +111,7 @@ public class Application {
                                     break;
                                 case 7:
                                     break;
+                                case 8:break;
                             }
                         } catch (InputMismatchException e) {
                             System.out.println(" Entrez invalide ");
