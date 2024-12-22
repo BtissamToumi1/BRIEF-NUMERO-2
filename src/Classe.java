@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Classe {
+    private int id;
     private String nom;
     private Formateur formateur;
     private ArrayList<Apprenant> Liste_des_apprenant;
@@ -10,6 +11,14 @@ public class Classe {
     }
     public String getNom() {
         return nom;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setNom(String nom) {

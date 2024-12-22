@@ -13,6 +13,55 @@ public class GestionApprenant {
         E1.setId(++comptuerId);
         liste_apprenant.add(E1);
     }
+    public void Associer_Apprenant_classe(Gestion_des_classes gestion_classe) {
+        Scanner scanne = new Scanner(System.in);
+        System.out.println("    ------------------------------  ");
+        System.out.println("    voici la liste des apprenants    ");
+        System.out.println("    ------------------------------  ");
+        if (liste_apprenant.isEmpty()) {
+            System.out.println("la liste des apprenants est vide ");
+            System.out.println("------------------------------");
+        } else {
+            afficher_listes_apprenants();
+            System.out.println("------------------------------");
+            System.out.println("Selectionnez l'apprenant a associer a une classe : ");
+            int index_Apprenant = scanne.nextInt() - 1;
+            if (index_Apprenant >= 0 && index_Apprenant < gestion_classe.getLise_des_classes().size()) {
+                Apprenant apprenant = liste_apprenant.get(index_Apprenant);
+                if (gestion_classe.getLise_des_classes().isEmpty()) {
+                    System.out.println("------------------------------");
+                    System.out.println("la liste des classes est vide ");
+                    System.out.println("------------------------------");
+                    System.out.println("Message de confirmation : vous pouvez creer une classe en tapant Oui sinon vous pouvez tapez Non pour quitter => ");
+                    String choix = scanne.next();
+                    while (!choix.equals("Oui") || !choix.equals("Non")) {
+                        System.out.print("Message de confirmation > pour creer une nouvelle classe tapez OUI > pour Quitter tapez Non : ");
+                        choix = scanne.next();
+                    }
+                    if (choix.equals("Oui")) {
+                        gestion_classe.creer_une_classe();
+                        Classe classe = gestion_classe.getLise_des_classes().get(0);
+                        apprenant.setClasse(classe);
+                    } else {
+                        System.out.print("Au revoir");
+                    }
+                } else {
+                    System.out.println("    ------------------------------  ");
+                    System.out.println("    voici la liste des classes    ");
+                    System.out.println("    ------------------------------  ");
+                    //gestion_classe.afficher_liste_classes
+                    System.out.println("    ------------------------------  ");
+                    int index_classe = scanne.nextInt() - 1;
+                    if (index_classe >= 0 && index_classe < gestion_classe.getLise_des_classes().size()) {
+                        Classe classe = gestion_classe.getLise_des_classes().get(index_classe);
+                        apprenant.setClasse(classe);
+                        System.out.print("l'association est faite avec succes");
+                    }
+                    else{ System.out.print("classe invalide"); }
+                }
+            }
+        }
+    }
     public void afficher_listes_apprenants(){
         if(liste_apprenant.isEmpty()){
             System.out.println("la liste des Apprenants est vide");

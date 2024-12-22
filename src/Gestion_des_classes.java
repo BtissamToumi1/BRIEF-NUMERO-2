@@ -2,13 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Gestion_des_classes {
-    ArrayList<Classe> lise_des_classes;
+    private ArrayList<Classe> lise_des_classes;
+    private static int compteurID=0;
     public void creer_une_classe(){
         Scanner sc=new Scanner(System.in);
         System.out.print("Entrez le nom de la classe : ");
         String nom=sc.nextLine();
         if(lise_des_classes.isEmpty()){
             Classe classe=new Classe();
+            classe.setId(++compteurID);
             classe.setNom(nom);
             lise_des_classes.add(classe);
             System.out.println("La classe '" + nom + "' a été ajoutée avec succès !");
@@ -16,6 +18,7 @@ public class Gestion_des_classes {
                if(exiteDeja(nom)){System.out.println("ce classe existe deja");}
                 else{Classe classe=new Classe();
                    classe.setNom(nom);
+                   classe.setId(++compteurID);
                    lise_des_classes.add(classe);}
             }
 
@@ -49,7 +52,10 @@ public void modifier_classe(){
         }
     }while(choix!=5);
 }
-    public boolean exiteDeja(String nom) {
+public void afficher_liste_classes(){
+        
+}
+public boolean exiteDeja(String nom) {
         int trouve = -1;
         for (int i = 0; i < lise_des_classes.size(); i++) {
             if (lise_des_classes.get(i).getNom().equals(nom)) {
